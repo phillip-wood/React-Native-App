@@ -19,6 +19,7 @@ function SearchSnip(props) {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.grey,
+    padding: 20,
   },
   title: {
     fontSize: 20,

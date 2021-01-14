@@ -4,6 +4,7 @@ import * as Yup from "yup"
 
 import {AppForm, AppFormPicker, SubmitButton} from "../../components/forms"
 import Screen from "../../components/Screen"
+import routes from "../../navigation/routes"
 
 const Brands = [
   { label: "Nike", value: 1 },
@@ -13,10 +14,10 @@ const Brands = [
 
 const validationSchema = Yup.object().shape({
   brand: Yup.object().required().nullable().label("Brand"),
-  model: Yup.object().required().nullable().label("Brand"),
+  // model: Yup.object().required().nullable().label("Brand"),
 })
 
-function Search() {
+function Search(props) {
   return (
     <Screen style={styles.container}>
       <AppForm
@@ -27,15 +28,18 @@ function Search() {
           colorway: null,
           condition: null,
         }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values) => { 
+          console.log(values)
+          props.navigation.navigate(routes.SEARCH_RESULTS) }}
         validationSchema={validationSchema}
       >
         <AppFormPicker items={Brands} name="brand" placeholder="Brand" />
-        <AppFormPicker items={Brands} name="model" placeholder="Model" />
+        {/* <AppFormPicker items={Brands} name="model" placeholder="Model" />
         <AppFormPicker items={Brands} name="submodel" placeholder="SubModel" />
         <AppFormPicker items={Brands} name="colorway" placeholder="Colorway" />
-        <AppFormPicker items={Brands} name="condition" placeholder="Condition" />
+        <AppFormPicker items={Brands} name="condition" placeholder="Condition" /> */}
         <SubmitButton title="Search" />
+
       </AppForm>
     </Screen>
   )

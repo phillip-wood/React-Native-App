@@ -5,8 +5,9 @@ import colors from "../../config/colors"
 import AppButton from "../../components/AppButton"
 import SearchSnip from "../../components/SearchSnip"
 import Screen from "../../components/Screen"
+import routes from "../../navigation/routes"
 
-export default function Home() {
+export default function Home(props) {
   return (
     <Screen style={styles.container} >
         
@@ -15,15 +16,15 @@ export default function Home() {
         </View>
 
         <View style={styles.buttonsContainer}>
-          <AppButton title="Search" />
+          <AppButton title="Search" onPress={() => props.navigation.navigate(routes.SEARCH)} />
         </View>
 
         <View style={styles.searchContainer}>
-          <Text style={styles.text}>Last Search</Text>
-          <SearchSnip title="Nike"/>
-          <Text style={styles.text}>Saved Searchs</Text>
-          <SearchSnip title="Jordons"/>
-          <SearchSnip title="ADIDAS"/>
+          <Text style={styles.text}>Last Search:</Text>
+          <SearchSnip title="Nike" onPress={() => props.navigation.navigate(routes.SEARCH)} />
+          <Text style={styles.text}>Saved Searchs:</Text>
+          <SearchSnip title="Jordons" onPress={() => props.navigation.navigate(routes.SEARCH)}/>
+          <SearchSnip title="ADIDAS" onPress={() => props.navigation.navigate(routes.SEARCH)}/>
         </View>
 
     </Screen>

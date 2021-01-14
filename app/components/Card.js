@@ -3,9 +3,11 @@ import { View, StyleSheet, Image } from "react-native"
 
 import AppText from "./AppText"
 import colors from "../config/colors"
+import { TouchableWithoutFeedback } from "react-native-gesture-handler"
 
 function Card(props) {
   return (
+    <TouchableWithoutFeedback onPress={props.onPress}>
     <View style={styles.card}>
       <Image style={styles.image} source={props.image} />
       <View style={styles.detailsContainer}>
@@ -17,6 +19,7 @@ function Card(props) {
         </AppText>
       </View>
     </View>
+  </TouchableWithoutFeedback>
   )
 }
 

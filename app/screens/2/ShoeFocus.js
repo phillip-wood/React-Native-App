@@ -7,12 +7,15 @@ import AppText from "../../components/AppText"
 import AppButton from "../../components/AppButton"
 
 function ShoeFocus(props) {
+
+  const listing = props.route.params
+
   return (
     <View>
-      <Image style={styles.image} source={require("../../assets/shoe5.jpg")} />
+      <Image style={styles.image} source={listing.image} />
       <View style={styles.detailsContainer}>
-        <AppText style={styles.title}>Converse</AppText>
-        <AppText style={styles.price}>All Stars</AppText>
+        <AppText style={styles.title}>{listing.title}</AppText>
+        <AppText style={styles.price}>{listing.price}</AppText>
         <View style={styles.userContainer}>
           <UserSnip
             image={require("../../assets/user1.png")}

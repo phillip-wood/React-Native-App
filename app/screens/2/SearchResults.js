@@ -4,6 +4,7 @@ import { FlatList, StyleSheet } from "react-native"
 import Screen from "../../components/Screen"
 import Card from "../../components/Card"
 import colors from "../../config/colors"
+import routes from "../../navigation/routes"
 
 const shoes = [
   {
@@ -33,7 +34,7 @@ const shoes = [
 
 ]
 
-function SearchResults() {
+function SearchResults(props) {
   return (
     <Screen style={styles.screen}>
       <FlatList
@@ -44,6 +45,7 @@ function SearchResults() {
             title={item.title}
             subTitle={item.price}
             image={item.image}
+            onPress={() => props.navigation.navigate(routes.SHOE_FOCUS, item)}
           />
         )}
       />

@@ -5,7 +5,7 @@ import colors from "../../config/colors"
 import AppButton from "../../components/AppButton"
 import Screen from "../../components/Screen"
 
-export default function Welcome() {
+export default function Welcome({ navigation }) {
   return (
     <Screen style={styles.container}>
         
@@ -17,8 +17,8 @@ export default function Welcome() {
         </View>
 
         <View style={styles.buttonsContainer}>
-          <AppButton title="Login" />
-          <AppButton title="Register" />
+          <AppButton title="Login" onPress={() => navigation.navigate("Login")} />
+          <AppButton title="Register" onPress={() => navigation.navigate("Register")} />
         </View>
 
     </Screen>
